@@ -27,8 +27,8 @@ input/
 ```
 
 The script expects each sequence to have both a `_processed` and a `_dataset_instance` version, where:
-- The `_processed` folder contains RGB images, masks, depths, and poses
-- The `_dataset_instance` folder contains the point cloud file (`pointcloud.ply`)
+- The `_processed` folder contains poses and meta pose json
+- The `_dataset_instance` folder contains the point cloud file (`pointcloud.ply`), RGB images, masks, depths, and poses
 
 #### Usage
 
