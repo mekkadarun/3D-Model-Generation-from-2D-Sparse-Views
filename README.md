@@ -13,17 +13,18 @@ This script converts point cloud (PLY) files from the CO3D dataset into binary v
 The script assumes the CO3D dataset is organized in the following structure:
 
 ```
-input/
+input/                            # Data root
 └── chair/                        # Category folder
     ├── 58_3353_10266_processed/  # Processed sequence folder
-    │   ├── images/               # RGB images
+    │   ├── Fsequence_meta.json   #
+    │   └── poses/                # Camera poses
+    └── 58_3353_10266_dataset_instance/  # Dataset instance folder
+        ├── images/               # RGB images
     │   ├── masks/                # Segmentation masks
     │   ├── depths/               # Depth maps
     │   ├── depth_masks/          # Depth validity masks
-    │   └── poses/                # Camera poses
-    └── 58_3353_10266_dataset_instance/  # Dataset instance folder
         ├── pointcloud.ply        # 3D point cloud
-        └── ...                   # Other metadata
+        └── 58_3353_10266.binvox  # Binvox file will be generated at HERE!
 ```
 
 The script expects each sequence to have both a `_processed` and a `_dataset_instance` version, where:
@@ -84,6 +85,125 @@ python main.py --alg_type=3DVAEGAN_MULTIVIEW --obj=chair --batch_size=32
 ```
 
 The script provides extensive command-line options for customizing model behavior, directory structure, and training parameters.
+
+
+## Model Architecture (`model.py`)
+
+The project implements a 3D-VAEGAN architecture with a clean, modular design built on shared base classes:
+
+### Base Classes
+
+- **ModelBase**: Common foundation for all network components
+  - Provides utility methods for size calculations and padding
+  - Ensures consistent architecture across all components
+  - Simplifies addition of new model variants
+
+- **EncoderBase**: Shared encoder implementation
+  - Defines the core image processing pipeline
+  - Provides the reparameterization mechanism for all encoders
+  - Allows for consistent processing across single and multi-view scenarios
+
+### Generator (Previous `_G`, now `Generator`)
+- **Input**: Latent vector z (size determined by `args.z_size`, typically 200)
+- **Output**: 3D voxel grid representing an object (shape: [batch_size, 1, 64, 64, 64])
+- **Architecture**: 
+  - 5 transposed convolutional layers implemented as a ModuleList
+  - Consistent pattern: ConvTranspose3d → BatchNorm3d → ReLU (Sigmoid for final layer)
+  - Progressive upsampling: 1³ → 4³ → 8³ → 16³ → 32³ → 64³
+  - Corresponding channel reduction: z_size → cube_len*8 → cube_len*4 → cube_len*2 → cube_len → 1
+
+### Discriminator (Previous `_D`, now `Discriminator`)
+- **Input**: 3D voxel grid (shape: [batch_size, 1, cube_len, cube_len, cube_len])
+- **Output**: Binary classification (shape: [batch_size, 1, 1, 1, 1])
+- **Architecture**:
+  - 5 convolutional layers implemented as a ModuleList
+  - Consistent pattern: Conv3d → BatchNorm3d → LeakyReLU (Sigmoid for final layer)
+  - Progressive downsampling: cube_len³ → 32³ → 16³ → 8³ → 4³ → 1³
+  - Corresponding channel expansion: 1 → cube_len → cube_len*2 → cube_len*4 → cube_len*8 → 1
+
+### Encoder Implementations
+
+#### SingleViewEncoder (Previous `_E`)
+- **Input**: 2D RGB image (shape: [batch_size, 3, image_size, image_size])
+- **Output**: Distribution parameters µ and log(σ²) in latent space
+- **Architecture**:
+  - Inherits from EncoderBase
+  - 5 convolutional layers for feature extraction
+  - Two parallel fully connected layers for mean and log-variance
+  - Reparameterization trick implementation for sampling
+
+#### MultiViewEncoder (Previous `_E_MultiView`)
+- **Input**: List of 2D images from different viewpoints
+- **Output**: Combined latent representation plus per-view parameters
+- **Architecture**:
+  - Extends SingleViewEncoder functionality
+  - Processes each view independently through shared encoder
+  - Combines view information through configurable strategies:
+    - Mean: Average all view encodings (default)
+    - Max: Element-wise maximum across views
+    - Concat: Concatenate all views (extensible but not implemented)
+
+#### Factory Pattern
+
+The architecture includes a factory function `create_encoder()` that instantiates the appropriate encoder based on configuration parameters, simplifying code that needs to select between single and multi-view encoders.
+
+For backward compatibility, the original class names (`_G`, `_D`, `_E`, `_E_MultiView`) are maintained as aliases to their refactored counterparts.
+
+## Dataset Implementation (`utils.py`)
+
+### CO3DDataset
+
+The `CO3DDataset` class provides a unified interface for working with the Common Objects in 3D (CO3D) dataset:
+
+- **Flexible configuration**:
+  - Single-view or multi-view mode
+  - With or without camera pose information
+  - Option to apply foreground masks to images
+
+- **Expected directory structure**:
+  ```
+  input/
+  └── category/                       # Category folder (e.g., "chair")
+      ├── sequence_name_processed/    # Processed data
+      │   ├── sequence_meta.json      # Metadata file with frame info
+      │   └── poses/                  # Camera poses folder
+      └── sequence_name_dataset_instance/  # Dataset instance folder
+          ├── images/                 # RGB images
+          ├── masks/                  # Segmentation masks
+          ├── depths/                 # Depth maps
+          ├── depth_masks/            # Depth validity masks
+          ├── pointcloud.ply          # 3D point cloud
+          └── sequence_name.binvox    # Binvox voxel representation
+  ```
+
+- **Features**:
+  - Automatic sequence discovery and validation
+  - Intelligent frame sampling for multi-view mode
+  - Image preprocessing with masks to focus on foreground objects
+  - Unified interface for different training configurations
+
+- **Return formats**:
+  - Single-view: `(image_tensor, volume_tensor)` or `(image_tensor, pose, volume_tensor)`
+  - Multi-view: `(image_tensors_list, volume_tensor)` or `(image_tensors_list, poses_list, volume_tensor)`
+
+The dataset implementation handles the complexity of the CO3D data structure and provides a clean interface for the 3D-VAEGAN training pipeline.
+
+## Usage Notes
+
+1. **Dataset Preparation**:
+   - Convert point clouds to voxel grids using the `co3d_ply2voxel.py` script
+   - Ensure the directory structure matches the expected format
+
+2. **Data Configuration**:
+   - Set the appropriate category with `--obj` (default: "chair")
+   - Configure the number of views with `--num_views` (default: 12, used in multi-view mode)
+   - Set the image size with `--image_size` (default: 224)
+   - Set the voxel resolution with `--cube_len` (default: 32)
+
+3. **Training Configuration**:
+   - Choose the algorithm type with `--alg_type` (single-view: '3DVAEGAN', multi-view: '3DVAEGAN_MULTIVIEW')
+   - Configure multi-view combination type with `--combine_type` (options: 'mean', 'max')
+   - Set the latent space size with `--z_size` (default: 200)
 
 ## Getting Started
 
