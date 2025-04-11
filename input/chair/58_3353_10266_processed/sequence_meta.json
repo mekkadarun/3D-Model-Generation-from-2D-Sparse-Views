@@ -1,0 +1,411 @@
+{
+    "sequence_name": "58_3353_10266",
+    "frames": [
+        {
+            "image": "images/frame000001.jpg",
+            "pose": "poses/frame000001_pose.json",
+            "mask": "masks/frame000001.png",
+            "depth": "depths/frame000001.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000001.png"
+        },
+        {
+            "image": "images/frame000002.jpg",
+            "pose": "poses/frame000002_pose.json",
+            "mask": "masks/frame000002.png",
+            "depth": "depths/frame000002.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000002.png"
+        },
+        {
+            "image": "images/frame000003.jpg",
+            "pose": "poses/frame000003_pose.json",
+            "mask": "masks/frame000003.png",
+            "depth": "depths/frame000003.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000003.png"
+        },
+        {
+            "image": "images/frame000004.jpg",
+            "pose": "poses/frame000004_pose.json",
+            "mask": "masks/frame000004.png",
+            "depth": "depths/frame000004.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000004.png"
+        },
+        {
+            "image": "images/frame000005.jpg",
+            "pose": "poses/frame000005_pose.json",
+            "mask": "masks/frame000005.png",
+            "depth": "depths/frame000005.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000005.png"
+        },
+        {
+            "image": "images/frame000006.jpg",
+            "pose": "poses/frame000006_pose.json",
+            "mask": "masks/frame000006.png",
+            "depth": "depths/frame000006.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000006.png"
+        },
+        {
+            "image": "images/frame000007.jpg",
+            "pose": "poses/frame000007_pose.json",
+            "mask": "masks/frame000007.png",
+            "depth": "depths/frame000007.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000007.png"
+        },
+        {
+            "image": "images/frame000008.jpg",
+            "pose": "poses/frame000008_pose.json",
+            "mask": "masks/frame000008.png",
+            "depth": "depths/frame000008.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000008.png"
+        },
+        {
+            "image": "images/frame000009.jpg",
+            "pose": "poses/frame000009_pose.json",
+            "mask": "masks/frame000009.png",
+            "depth": "depths/frame000009.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000009.png"
+        },
+        {
+            "image": "images/frame000010.jpg",
+            "pose": "poses/frame000010_pose.json",
+            "mask": "masks/frame000010.png",
+            "depth": "depths/frame000010.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000010.png"
+        },
+        {
+            "image": "images/frame000011.jpg",
+            "pose": "poses/frame000011_pose.json",
+            "mask": "masks/frame000011.png",
+            "depth": "depths/frame000011.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000011.png"
+        },
+        {
+            "image": "images/frame000012.jpg",
+            "pose": "poses/frame000012_pose.json",
+            "mask": "masks/frame000012.png",
+            "depth": "depths/frame000012.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000012.png"
+        },
+        {
+            "image": "images/frame000013.jpg",
+            "pose": "poses/frame000013_pose.json",
+            "mask": "masks/frame000013.png",
+            "depth": "depths/frame000013.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000013.png"
+        },
+        {
+            "image": "images/frame000014.jpg",
+            "pose": "poses/frame000014_pose.json",
+            "mask": "masks/frame000014.png",
+            "depth": "depths/frame000014.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000014.png"
+        },
+        {
+            "image": "images/frame000015.jpg",
+            "pose": "poses/frame000015_pose.json",
+            "mask": "masks/frame000015.png",
+            "depth": "depths/frame000015.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000015.png"
+        },
+        {
+            "image": "images/frame000016.jpg",
+            "pose": "poses/frame000016_pose.json",
+            "mask": "masks/frame000016.png",
+            "depth": "depths/frame000016.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000016.png"
+        },
+        {
+            "image": "images/frame000017.jpg",
+            "pose": "poses/frame000017_pose.json",
+            "mask": "masks/frame000017.png",
+            "depth": "depths/frame000017.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000017.png"
+        },
+        {
+            "image": "images/frame000018.jpg",
+            "pose": "poses/frame000018_pose.json",
+            "mask": "masks/frame000018.png",
+            "depth": "depths/frame000018.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000018.png"
+        },
+        {
+            "image": "images/frame000019.jpg",
+            "pose": "poses/frame000019_pose.json",
+            "mask": "masks/frame000019.png",
+            "depth": "depths/frame000019.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000019.png"
+        },
+        {
+            "image": "images/frame000020.jpg",
+            "pose": "poses/frame000020_pose.json",
+            "mask": "masks/frame000020.png",
+            "depth": "depths/frame000020.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000020.png"
+        },
+        {
+            "image": "images/frame000021.jpg",
+            "pose": "poses/frame000021_pose.json",
+            "mask": "masks/frame000021.png",
+            "depth": "depths/frame000021.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000021.png"
+        },
+        {
+            "image": "images/frame000022.jpg",
+            "pose": "poses/frame000022_pose.json",
+            "mask": "masks/frame000022.png",
+            "depth": "depths/frame000022.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000022.png"
+        },
+        {
+            "image": "images/frame000023.jpg",
+            "pose": "poses/frame000023_pose.json",
+            "mask": "masks/frame000023.png",
+            "depth": "depths/frame000023.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000023.png"
+        },
+        {
+            "image": "images/frame000024.jpg",
+            "pose": "poses/frame000024_pose.json",
+            "mask": "masks/frame000024.png",
+            "depth": "depths/frame000024.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000024.png"
+        },
+        {
+            "image": "images/frame000025.jpg",
+            "pose": "poses/frame000025_pose.json",
+            "mask": "masks/frame000025.png",
+            "depth": "depths/frame000025.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000025.png"
+        },
+        {
+            "image": "images/frame000026.jpg",
+            "pose": "poses/frame000026_pose.json",
+            "mask": "masks/frame000026.png",
+            "depth": "depths/frame000026.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000026.png"
+        },
+        {
+            "image": "images/frame000027.jpg",
+            "pose": "poses/frame000027_pose.json",
+            "mask": "masks/frame000027.png",
+            "depth": "depths/frame000027.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000027.png"
+        },
+        {
+            "image": "images/frame000028.jpg",
+            "pose": "poses/frame000028_pose.json",
+            "mask": "masks/frame000028.png",
+            "depth": "depths/frame000028.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000028.png"
+        },
+        {
+            "image": "images/frame000029.jpg",
+            "pose": "poses/frame000029_pose.json",
+            "mask": "masks/frame000029.png",
+            "depth": "depths/frame000029.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000029.png"
+        },
+        {
+            "image": "images/frame000030.jpg",
+            "pose": "poses/frame000030_pose.json",
+            "mask": "masks/frame000030.png",
+            "depth": "depths/frame000030.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000030.png"
+        },
+        {
+            "image": "images/frame000031.jpg",
+            "pose": "poses/frame000031_pose.json",
+            "mask": "masks/frame000031.png",
+            "depth": "depths/frame000031.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000031.png"
+        },
+        {
+            "image": "images/frame000032.jpg",
+            "pose": "poses/frame000032_pose.json",
+            "mask": "masks/frame000032.png",
+            "depth": "depths/frame000032.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000032.png"
+        },
+        {
+            "image": "images/frame000033.jpg",
+            "pose": "poses/frame000033_pose.json",
+            "mask": "masks/frame000033.png",
+            "depth": "depths/frame000033.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000033.png"
+        },
+        {
+            "image": "images/frame000034.jpg",
+            "pose": "poses/frame000034_pose.json",
+            "mask": "masks/frame000034.png",
+            "depth": "depths/frame000034.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000034.png"
+        },
+        {
+            "image": "images/frame000035.jpg",
+            "pose": "poses/frame000035_pose.json",
+            "mask": "masks/frame000035.png",
+            "depth": "depths/frame000035.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000035.png"
+        },
+        {
+            "image": "images/frame000036.jpg",
+            "pose": "poses/frame000036_pose.json",
+            "mask": "masks/frame000036.png",
+            "depth": "depths/frame000036.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000036.png"
+        },
+        {
+            "image": "images/frame000037.jpg",
+            "pose": "poses/frame000037_pose.json",
+            "mask": "masks/frame000037.png",
+            "depth": "depths/frame000037.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000037.png"
+        },
+        {
+            "image": "images/frame000038.jpg",
+            "pose": "poses/frame000038_pose.json",
+            "mask": "masks/frame000038.png",
+            "depth": "depths/frame000038.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000038.png"
+        },
+        {
+            "image": "images/frame000039.jpg",
+            "pose": "poses/frame000039_pose.json",
+            "mask": "masks/frame000039.png",
+            "depth": "depths/frame000039.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000039.png"
+        },
+        {
+            "image": "images/frame000040.jpg",
+            "pose": "poses/frame000040_pose.json",
+            "mask": "masks/frame000040.png",
+            "depth": "depths/frame000040.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000040.png"
+        },
+        {
+            "image": "images/frame000041.jpg",
+            "pose": "poses/frame000041_pose.json",
+            "mask": "masks/frame000041.png",
+            "depth": "depths/frame000041.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000041.png"
+        },
+        {
+            "image": "images/frame000042.jpg",
+            "pose": "poses/frame000042_pose.json",
+            "mask": "masks/frame000042.png",
+            "depth": "depths/frame000042.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000042.png"
+        },
+        {
+            "image": "images/frame000043.jpg",
+            "pose": "poses/frame000043_pose.json",
+            "mask": "masks/frame000043.png",
+            "depth": "depths/frame000043.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000043.png"
+        },
+        {
+            "image": "images/frame000044.jpg",
+            "pose": "poses/frame000044_pose.json",
+            "mask": "masks/frame000044.png",
+            "depth": "depths/frame000044.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000044.png"
+        },
+        {
+            "image": "images/frame000045.jpg",
+            "pose": "poses/frame000045_pose.json",
+            "mask": "masks/frame000045.png",
+            "depth": "depths/frame000045.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000045.png"
+        },
+        {
+            "image": "images/frame000046.jpg",
+            "pose": "poses/frame000046_pose.json",
+            "mask": "masks/frame000046.png",
+            "depth": "depths/frame000046.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000046.png"
+        },
+        {
+            "image": "images/frame000047.jpg",
+            "pose": "poses/frame000047_pose.json",
+            "mask": "masks/frame000047.png",
+            "depth": "depths/frame000047.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000047.png"
+        },
+        {
+            "image": "images/frame000048.jpg",
+            "pose": "poses/frame000048_pose.json",
+            "mask": "masks/frame000048.png",
+            "depth": "depths/frame000048.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000048.png"
+        },
+        {
+            "image": "images/frame000049.jpg",
+            "pose": "poses/frame000049_pose.json",
+            "mask": "masks/frame000049.png",
+            "depth": "depths/frame000049.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000049.png"
+        },
+        {
+            "image": "images/frame000050.jpg",
+            "pose": "poses/frame000050_pose.json",
+            "mask": "masks/frame000050.png",
+            "depth": "depths/frame000050.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000050.png"
+        },
+        {
+            "image": "images/frame000051.jpg",
+            "pose": "poses/frame000051_pose.json",
+            "mask": "masks/frame000051.png",
+            "depth": "depths/frame000051.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000051.png"
+        },
+        {
+            "image": "images/frame000052.jpg",
+            "pose": "poses/frame000052_pose.json",
+            "mask": "masks/frame000052.png",
+            "depth": "depths/frame000052.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000052.png"
+        },
+        {
+            "image": "images/frame000053.jpg",
+            "pose": "poses/frame000053_pose.json",
+            "mask": "masks/frame000053.png",
+            "depth": "depths/frame000053.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000053.png"
+        },
+        {
+            "image": "images/frame000054.jpg",
+            "pose": "poses/frame000054_pose.json",
+            "mask": "masks/frame000054.png",
+            "depth": "depths/frame000054.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000054.png"
+        },
+        {
+            "image": "images/frame000055.jpg",
+            "pose": "poses/frame000055_pose.json",
+            "mask": "masks/frame000055.png",
+            "depth": "depths/frame000055.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000055.png"
+        },
+        {
+            "image": "images/frame000056.jpg",
+            "pose": "poses/frame000056_pose.json",
+            "mask": "masks/frame000056.png",
+            "depth": "depths/frame000056.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000056.png"
+        },
+        {
+            "image": "images/frame000057.jpg",
+            "pose": "poses/frame000057_pose.json",
+            "mask": "masks/frame000057.png",
+            "depth": "depths/frame000057.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000057.png"
+        },
+        {
+            "image": "images/frame000058.jpg",
+            "pose": "poses/frame000058_pose.json",
+            "mask": "masks/frame000058.png",
+            "depth": "depths/frame000058.jpg.geometric.png",
+            "depth_mask": "depth_masks/frame000058.png"
+        }
+    ]
+}
