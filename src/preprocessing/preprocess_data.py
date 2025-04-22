@@ -1,3 +1,10 @@
+"""
+ * Authors: Yuyang Tian and Arun Mekkad
+ * Date: April 6 2025
+ * Purpose: Preprocesses CO3D data by copying raw files to a processed directory
+            and creating metadata files for sequence organization and tracking.
+"""
+
 import os
 import json
 import shutil
@@ -5,15 +12,12 @@ from pathlib import Path
 from tqdm import tqdm
 
 def preprocess_sequence(sequence_path, processed_sequence_path):
-    """
-    For a given instance (sequence), copy the raw files (images, masks, depths, depth_masks)
-    from data/models/chair/<instance> into data/processed/chair/<instance> and then create a meta file.
-    """
+    """Processes a single sequence by copying raw files and creating metadata"""
     raw_sequence = Path(sequence_path)
     processed_sequence = Path(processed_sequence_path)
     processed_sequence.mkdir(parents=True, exist_ok=True)
     
-    # Directories to copy:
+    # Copy directories with raw data
     subdirs = ["images", "masks", "depths", "depth_masks"]
     for sub in subdirs:
         raw_subdir = raw_sequence / sub
@@ -24,19 +28,20 @@ def preprocess_sequence(sequence_path, processed_sequence_path):
                 if file.is_file():
                     shutil.copy2(file, processed_subdir / file.name)
     
-    # Create meta data from the processed images directory.
+    # Create metadata from the processed images
     processed_images_dir = processed_sequence / "images"
     if not processed_images_dir.exists():
         return None
+        
     frame_files = sorted(os.listdir(processed_images_dir))
     frames = []
     for img_file in frame_files:
         frame_id = os.path.splitext(img_file)[0]
-        # The pose file is expected in the processed poses folder:
         pose_path = os.path.join("poses", f"{frame_id}_pose.json")
         full_pose_path = processed_sequence / pose_path
         if not full_pose_path.exists():
             continue
+            
         frame_data = {
             "image": os.path.join("images", img_file),
             "pose": pose_path,
@@ -45,8 +50,10 @@ def preprocess_sequence(sequence_path, processed_sequence_path):
             "depth_mask": os.path.join("depth_masks", f"{frame_id}.png")
         }
         frames.append(frame_data)
+        
     if len(frames) < 2:
-        return None  # Skip sequences with fewer than 2 frames.
+        return None  # Skip sequences with insufficient frames
+        
     meta = {
         "sequence_name": raw_sequence.name,
         "frames": frames
@@ -57,9 +64,11 @@ def preprocess_sequence(sequence_path, processed_sequence_path):
     return meta
 
 def preprocess_all_sequences():
+    """Process all sequences in the raw data directory"""
     RAW_DATA_ROOT = Path("data/models/chair")
     PROCESSED_ROOT = Path("data/processed/chair")
     PROCESSED_ROOT.mkdir(parents=True, exist_ok=True)
+    
     instances = [d for d in RAW_DATA_ROOT.iterdir() if d.is_dir()]
     for instance in tqdm(instances, desc="Preprocessing sequences"):
         processed_instance = PROCESSED_ROOT / instance.name

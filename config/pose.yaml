@@ -1,0 +1,31 @@
+# Authors: Yuyang Tian and Arun Mekkad
+# Date: April 2025
+# Purpose: Configuration file for Multi-View 3D-VAE-GAN with pose encoding
+
+# Model Parameters
+n_epochs: 500
+batch_size: 6
+g_lr: 0.0001
+e_lr: 0.0001
+d_lr: 0.00001
+z_size: 128
+cube_len: 32
+image_size: 224
+
+# Training Parameters
+obj: chair
+num_views: 4
+combine_type: mean
+save_freq: 50
+vis_freq: 50
+seed: 42
+num_workers: 4
+apply_mask: true
+use_pose: true
+
+# Optimization Parameters
+beta1: 0.5
+beta2: 0.999
+recon_weight: 50.0
+kl_weight_start: 0.0001
+kl_weight_end: 0.01

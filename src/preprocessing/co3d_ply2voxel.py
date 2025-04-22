@@ -1,8 +1,14 @@
+"""
+ * Authors: Yuyang Tian and Arun Mekkad
+ * Date: April 8, 2025
+ * Purpose: Converts PLY point cloud files from CO3D dataset to binvox voxel
+            representations for 3D-VAE-GAN training, with optional visualization.
+"""
 import os
 import numpy as np
 import open3d as o3d
 from tqdm import tqdm
-import binvox_rw
+import data.binvox_rw as binvox_rw
 import argparse
 from pathlib import Path
 
