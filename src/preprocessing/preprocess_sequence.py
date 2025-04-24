@@ -1,3 +1,10 @@
+"""
+ * Authors: Yuyang Tian and Arun Mekkad
+ * Date: April 6 2025
+ * Purpose: Coordinates the preprocessing pipeline for CO3D sequences,
+            running pose extraction and data preprocessing in sequence.
+"""
+
 from src.preprocessing.extract_poses import extract_and_save_poses
 from src.preprocessing.preprocess_data import preprocess_all_sequences
 
