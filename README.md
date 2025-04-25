@@ -1,4 +1,4 @@
-# Multi-View 3D-VAE-GAN
+# 3D Model Generation from 2D Sparse Views
 
 This repository implements a Multi-View 3D-VAE-GAN architecture for generating 3D shapes from 2D images. The model supports both single-view and multi-view training, with optional pose encoding for improved 3D reconstruction.
 
